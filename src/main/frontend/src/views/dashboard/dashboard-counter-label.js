@@ -127,5 +127,5 @@ class DashboardCounterLabel extends LitElement {
     }
 }
 
-// Registra o elemento customizado no navegador
+// Regista o elemento customizado no navegador
 customElements.define(DashboardCounterLabel.is, DashboardCounterLabel);
