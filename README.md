@@ -1,3 +1,31 @@
+# JuniorOperationsTeam
+
+**Nickname do grupo:** `JuniorOperationsTeam`
+
+Breve descrição: Projeto do grupo **JuniorOperationsTeam** — repositório com trabalhos e entregas do curso.
+
+---
+
+## Curso
+
+- **Curso:** LEI-PL
+- **Semestre / Ano:** 3º 1º semestre
+
+---
+
+## Membros
+
+| Nº | Nome completo   | Número   | Curso  | Papel / Observações |
+|---:|-----------------|----------|--------|---------------------|
+| 1  | João Fonseca    | n110608  | LEI-PL |                     |
+| 2  | Miguel Martins  | n111130  | LEI-PL |                     |
+| 3  | Manuel Cravo    | n111588  | LEI-PL |                     |
+| 4  | Tomás Carlos    | n123304  | LEI-PL |                     |
+
+
+
+---
+
 # ⚠️ This starter is not recommended ⚠️
 
 **This starter is not recommended for new Vaadin Flow applications. Instead, visit [start.vaadin.com](https://start.vaadin.com/) to configure and download a Vaadin project that reflects the current best practices.**
