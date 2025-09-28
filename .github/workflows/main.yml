@@ -1,0 +1,26 @@
+name: PR - Notificar por Email
+
+on:
+  pull_request:
+    types: [opened, reopened, ready_for_review]
+
+jobs:
+  email:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Enviar email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: ${{ secrets.SMTP_SERVER }}
+          server_port: 465
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: "Novo PR: ${{ github.event.pull_request.title }}"
+          to: colega@empresa.com
+          from: "GitHub Actions <no-reply@empresa.com>"
+          secure: true
+          body: |
+            Repositório: ${{ github.repository }}
+            Autor: ${{ github.event.pull_request.user.login }}
+            Título: ${{ github.event.pull_request.title }}
+            Link: ${{ github.event.pull_request.html_url }}
