@@ -20,7 +20,7 @@ The following is a set of guidelines to make cooperation between different indiv
 ## Ways to contribute
 
 ### Reporting Bugs
-
+Please contribute 
 Please report bugs by opening issues with the `bug` label in [project's GitHub repo](https://github.com/vaadin/bakery-app-starter-flow-spring/issues/new?labels=bug).
 
 When reporting a bug, please make sure to provide enough details and context so that the development team can reproduce the issue and understand what is the expected behavior. 
