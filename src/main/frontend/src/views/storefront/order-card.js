@@ -1,9 +1,18 @@
 import { html, css, LitElement } from 'lit';
 import { map } from 'lit/directives/map.js';
-import './order-status-badge.js';
+import './order-status-badge.js'; // Componente personalizado para mostrar o estado da encomenda
 import { sharedStyles } from '../../../styles/shared-styles.js';
 
+/**
+ * Componente <order-card>
+ * Representa um cartão que exibe as informações principais de uma encomenda,
+ * incluindo estado, hora/local, cliente e produtos.
+ */
 class OrderCard extends LitElement {
+  /**
+   * Estilos aplicados ao componente.
+   * Inclui estilos partilhados e regras específicas do cartão.
+   */
   static get styles() {
     return [
       sharedStyles,
@@ -81,8 +90,7 @@ class OrderCard extends LitElement {
 
         .name {
           word-break: break-all;
-          /* Non standard for WebKit */
-          word-break: break-word;
+          word-break: break-word; /* compatibilidade */
           white-space: normal;
         }
 
@@ -113,7 +121,6 @@ class OrderCard extends LitElement {
         .goods-item > div {
           flex: auto;
           word-break: break-all;
-          /* Non standard for WebKit */
           word-break: break-word;
           white-space: normal;
         }
@@ -139,21 +146,33 @@ class OrderCard extends LitElement {
     ];
   }
 
+  /**
+   * Renderização do componente (template).
+   * Estrutura:
+   * - Cabeçalho opcional (header)
+   * - Wrapper clicável com:
+   *    - Estado da encomenda e informações de tempo/local
+   *    - Nome do cliente e lista de artigos encomendados
+   */
   render() {
     return html`
       <div class="content">
+        <!-- Cabeçalho de grupo, aparece apenas se existir -->
         <div class="group-heading" ?hidden="${!this.header}">
           <span class="main">${this.header && this.header.main}</span>
           <span class="secondary">${this.header && this.header.secondary}</span>
         </div>
 
+        <!-- Corpo do cartão, clicável -->
         <div class="wrapper" @click="${this._cardClick}">
           <div class="info-wrapper">
+            <!-- Badge de estado da encomenda -->
             <order-status-badge
               class="badge"
               .status="${this.orderCard && this.orderCard.state}"
             ></order-status-badge>
 
+            <!-- Informações temporais e local -->
             <div class="time-place">
               <h3 class="time">${this.orderCard && this.orderCard.time}</h3>
               <h3 class="short-day">
@@ -170,15 +189,21 @@ class OrderCard extends LitElement {
             </div>
           </div>
 
+          <!-- Nome do cliente e lista de artigos -->
           <div class="name-items">
             <h3 class="name">${this.orderCard && this.orderCard.fullName}</h3>
 
             <div class="goods">
-              ${map(this.orderCard && this.orderCard.items, (item) => html`
-                <div class="goods-item">
-                  <span class="count">${item.quantity}</span>
-                  <div>${item.product.name}</div>
-                </div>`)}
+              <!-- Iteração sobre os produtos da encomenda -->
+              ${map(
+        this.orderCard && this.orderCard.items,
+        (item) => html`
+                  <div class="goods-item">
+                    <span class="count">${item.quantity}</span>
+                    <div>${item.product.name}</div>
+                  </div>
+                `
+    )}
             </div>
           </div>
         </div>
@@ -186,6 +211,12 @@ class OrderCard extends LitElement {
     `;
   }
 
+  /**
+   * Declaração de propriedades observáveis.
+   * - orderCard: objeto com dados da encomenda
+   * - header: cabeçalho opcional
+   * - item: não parece ser usado diretamente aqui
+   */
   static get properties() {
     return {
       orderCard: { type: Object },
@@ -194,13 +225,19 @@ class OrderCard extends LitElement {
     };
   }
 
+  /** Nome do componente customizado */
   static get is() {
     return 'order-card';
   }
 
+  /**
+   * Evento disparado ao clicar no cartão.
+   * Útil para interações (ex: abrir detalhes da encomenda).
+   */
   _cardClick() {
     this.dispatchEvent(new CustomEvent('card-click'));
   }
 }
 
+// Registo do elemento customizado
 customElements.define(OrderCard.is, OrderCard);
