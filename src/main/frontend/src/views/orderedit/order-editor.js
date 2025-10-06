@@ -14,7 +14,7 @@ import './order-item-editor.js';
 import { sharedStyles } from '../../../styles/shared-styles.js';
 
 class OrderEditor extends ScrollShadowMixin(LitElement) {
-    // New comment
+    // Changed comment
   static get styles() {
     return [
       sharedStyles,
