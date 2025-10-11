@@ -17,18 +17,18 @@ import com.vaadin.starter.bakery.ui.MainView;
 /**
  * Spring boot web application initializer.
  */
-@SpringBootApplication(scanBasePackageClasses = { SecurityConfiguration.class, MainView.class, Application.class,
+@SpringBootApplication(scanBasePackageClasses = { SecurityConfiguration.class, MainView.class, ToDoApp.class,
 		UserService.class }, exclude = ErrorMvcAutoConfiguration.class)
 @EnableJpaRepositories(basePackageClasses = { UserRepository.class })
 @EntityScan(basePackageClasses = { User.class })
-public class Application extends SpringBootServletInitializer {
+public class ToDoApp extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(ToDoApp.class, args);
 	}
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(Application.class);
+		return application.sources(ToDoApp.class);
 	}
 }

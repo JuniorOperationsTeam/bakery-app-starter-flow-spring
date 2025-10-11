@@ -103,7 +103,7 @@ Import it in Control Center selecting the `Identity manager` flag. Then create r
 
 
 # Running in Eclipse or IntelliJ
-As both IDEs support running Spring Boot applications you just have to import the project and select `com.vaadin.starter.bakery.Application` as main class if not done automatically. Using an IDE will also allow you to speed up development even more. Just check https://vaadin.com/blog/developing-without-server-restarts.
+As both IDEs support running Spring Boot applications you just have to import the project and select `com.vaadin.starter.bakery.ToDoApp` as main class if not done automatically. Using an IDE will also allow you to speed up development even more. Just check https://vaadin.com/blog/developing-without-server-restarts.
 
 # Running Scalability Tests
 
